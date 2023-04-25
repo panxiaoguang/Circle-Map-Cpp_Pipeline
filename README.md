@@ -3,6 +3,7 @@ This is a snakemake pipeline used for detecting eccDNA from circle-seq data base
 # overview
 ![workflow](https://github.com/panxiaoguang/Circle-Map-Cpp_Pipeline/blob/main/myWorkFlow.png)
 # usage
+If submission , this pipeline can submit to different nodes according to your required resources. If total memory is more than 50 GB, it will use the supermem node automatically.
 
 ## Download software
 Please note that all the software, including `bwa`,`samtools`,`fastqc`,`fastp` and `Circle-Map-Cpp` has been pre-built into singularity images. You don't need to be puzzled by any environment or dependence!
