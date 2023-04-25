@@ -46,6 +46,17 @@ snakemake \
   
 This is the command used to run the pipeline.
 
+#### option: modify qsub.py
+
+Please modify qsub command to which you need.
+
+```bash
+if resources < 50:
+    os.system("qsub -cwd -l vf={resources},num_proc={threads} -P P21Z25400N0107 -q st.q {script}".format(resources = resources, threads=threads, script=jobscript))
+else:
+    os.system("qsub -cwd -l vf={resources},num_proc={threads} -P st_supermem -q st_supermem.q {script}".format(resources = resources, threads=threads, script=jobscript))
+```
+
 # test
 
 ### Downloading the raw data
