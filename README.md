@@ -8,8 +8,8 @@ If submission , this pipeline can submit to different nodes according to your re
 ## Download software
 Please note that all the software, including `bwa`,`samtools`,`fastqc`,`fastp` and `Circle-Map-Cpp` has been pre-built into singularity images. You don't need to be puzzled by any environment or dependence!
 
-So please download all the softwares from this [link](https://bgitech-my.sharepoint.com/:f:/g/personal/panxiaoguang_genomics_cn/EgR6UVyGBPpBqZ4Rw8pkeYkBMno6UiRg1UTmSxDc4om6jg?e=mAbytU) before using this pipeline.
-
+So please download all the softwares from this [link](https://bgitech-my.sharepoint.com/:f:/g/personal/panxiaoguang_genomics_cn/EgR6UVyGBPpBqZ4Rw8pkeYkBMno6UiRg1UTmSxDc4om6jg?e=mAbytU) before using this pipeline, and then 
+put all of them into `workflow/softwares`
 ## Configure 
 
 #### Prepare sample tables 
