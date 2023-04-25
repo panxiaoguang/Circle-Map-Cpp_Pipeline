@@ -74,9 +74,11 @@ otherwise, you can use
 
 ```
 ## run
-snakemake -s workflow/run_circle_map.smk --cores 1 
+REF_PATH="?"
+CONTAINER_REF_PATH="?"
+snakemake -s workflow/run_circle_map.smk --cores 1 --use-singularity --singularity-args "--bind $REF_PATH:$CONTAINER_REF_PATH"
 ## dry-run
-snakemake -s workflow/run_circle_map.smk --cores 1 -np
+snakemake -s workflow/run_circle_map.smk --cores 1 -np --use-singularity --singularity-args "--bind $REF_PATH:$CONTAINER_REF_PATH"
 ## run and printing shell cmd
-snakemake -s workflow/run_circle_map.smk --cores 1 -p
+snakemake -s workflow/run_circle_map.smk --cores 1 -p --use-singularity --singularity-args "--bind $REF_PATH:$CONTAINER_REF_PATH"
 ```
