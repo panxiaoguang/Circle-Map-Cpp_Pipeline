@@ -2,6 +2,9 @@
 This is a snakemake pipeline used for detecting eccDNA from circle-seq data based on Circle-Map-Cpp.
 # overview
 ![workflow](https://github.com/panxiaoguang/Circle-Map-Cpp_Pipeline/blob/main/myWorkFlow.png)
+# Report
+This workflow finally will give a simple report for each sample, a typical example is like:
+![report](https://github.com/panxiaoguang/Circle-Map-Cpp_Pipeline/blob/main/exampleReport.png)
 # usage
 If submission , this pipeline can submit to different nodes according to your required resources. If total memory is more than 50 GB, it will use the supermem node automatically.
 
