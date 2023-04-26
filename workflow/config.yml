@@ -1,5 +1,6 @@
 samples: workflow/samples.tsv
 reference: /GRCh38/hg38full.fa ## notion： it's a path in singularity container
+ref: /dellfsqd2/ST_LBI/USER/panxiaoguang/app/data_repo/GRCh38/hg38full.fa 
 threads: 1
 Normal_mem: 1
 Big_threads: 1

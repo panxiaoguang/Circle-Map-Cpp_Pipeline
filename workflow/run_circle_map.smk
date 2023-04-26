@@ -15,7 +15,7 @@ def get_fastq_files(wildcards):
 
 rule all:
     input:
-        lambda wildcards: expand("FinallyData/{sample}_circle_site.bed", sample=samples.keys()),
+        lambda wildcards: expand("report/{sample}_summary.html", sample=samples.keys()),
         
 rule fastqc:
     input:
@@ -137,7 +137,6 @@ rule sort_circle_reads_index:
         "samtools sort -@ {threads} -o {output} {input} &&"
         "samtools index -@ {threads} {output}"
 
-
 rule circle_map_realign:
     input:
         "preData/{sample}_circular_read_candidates.sort.bam",
@@ -156,4 +155,77 @@ rule circle_map_realign:
     shell:
         "circle_map++ Realign -t {threads} -i {input[0]} -qbam {input[1]} -sbam {input[2]} -fasta {config[reference]} -o {output}"
 
+rule total_mappings:
+    input:
+        "preData/sorted_{sample}_circle.bam"
+    output:
+        temp("mappingState/{sample}.mapping.total.tsv")
+    group:
+        "downstream"
+    threads:
+        1
+    resources:
+        mem_gb=1
+    script:
+        "scripts/get_mapping.py"
 
+rule cal_ecc_num:
+    input:
+        "FinallyData/{sample}_circle_site.bed"
+    output:
+        temp("BaseState/{sample}.eccNum.txt")
+    group:
+        "downstream"
+    threads:
+        1
+    resources:
+        mem_gb=1
+    script:
+        "scripts/cal_ecc_num.py"
+
+rule calGC:
+    input:
+        ecc="FinallyData/{sample}_circle_site.bed"
+    output:
+        temp("BaseState/{sample}.gcContents.txt")
+    group:
+        "downstream"
+    threads:
+        1
+    resources:
+        mem_gb=1
+    script:
+        "scripts/calGC.py"
+
+rule calLength:
+    input:
+        "FinallyData/{sample}_circle_site.bed"
+    output:
+        temp("BaseState/{sample}.length.txt")
+    group:
+        "downstream"
+    threads:
+        1
+    resources:
+        mem_gb=1
+    script:
+        "scripts/calLength.py"
+
+rule makeReport:
+    input:
+        mpTotal = "mappingState/{sample}.mapping.total.tsv",
+        eccN = "BaseState/{sample}.eccNum.txt",
+        gc = "BaseState/{sample}.gcContents.txt",
+        lgth = "BaseState/{sample}.length.txt",
+        ecc = "FinallyData/{sample}_circle_site.bed",
+        fp = "Fastp/{sample}.clean.json"
+    output:
+        protected("report/{sample}_summary.html")
+    group:
+        "downstream"
+    threads:
+        1
+    resources:
+        mem_gb=1
+    script:
+        "scripts/makeReport.py"
