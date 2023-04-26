@@ -13,6 +13,12 @@ Please note that all the software, including `bwa`,`samtools`,`fastqc`,`fastp` a
 
 So please download all the softwares from this [link](https://bgitech-my.sharepoint.com/:f:/g/personal/panxiaoguang_genomics_cn/EgR6UVyGBPpBqZ4Rw8pkeYkBMno6UiRg1UTmSxDc4om6jg?e=mAbytU) before using this pipeline, and then 
 put all of them into `workflow/softwares`
+## Install python packages
+
+```bash
+pip3 install pyfaidx Bio pysam jinja2 plotly
+```
+
 ## Configure 
 
 #### Prepare sample tables 
