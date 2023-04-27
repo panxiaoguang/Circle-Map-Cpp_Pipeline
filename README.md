@@ -103,3 +103,8 @@ snakemake -s workflow/run_circle_map.smk --cores 1 -np --use-singularity --singu
 ## run and printing shell cmd
 snakemake -s workflow/run_circle_map.smk --cores 1 -p --use-singularity --singularity-args "--bind $REF_PATH:$CONTAINER_REF_PATH"
 ```
+# License
+
+Circle-Map-Cpp_Pipeline is open-code licensed under the [Commons Clause](LICENSE.md). You can read and modify all codes, but you cannot use the pipeline for commercial purposes.
+
+Additional information about license can be found in the [FAQ](https://commonsclause.com/).
