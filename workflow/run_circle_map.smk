@@ -194,8 +194,10 @@ rule calGC:
         1
     resources:
         mem_gb=1
+    singularity:
+        "workflow/softwares/Julia.sif"
     script:
-        "scripts/calGC.py"
+        "scripts/calGC.jl"
 
 rule calLength:
     input:
