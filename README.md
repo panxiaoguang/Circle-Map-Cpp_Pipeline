@@ -1,4 +1,9 @@
 # Circle-Map-Cpp_Pipeline
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/panxiaoguang/Circle-Map-Cpp_Pipeline)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/panxiaoguang/Circle-Map-Cpp_Pipeline)](https://github.com/panxiaoguang/Circle-Map-Cpp_Pipeline/releases)
+![GitHub last commit](https://img.shields.io/github/last-commit/panxiaoguang/Circle-Map-Cpp_Pipeline)
+
+
 This is a snakemake pipeline used for detecting eccDNA from circle-seq data based on Circle-Map-Cpp.
 # overview
 ![workflow](https://github.com/panxiaoguang/Circle-Map-Cpp_Pipeline/blob/main/myWorkFlow.png)
